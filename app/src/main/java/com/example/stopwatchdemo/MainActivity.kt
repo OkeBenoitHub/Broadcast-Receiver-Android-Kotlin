@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.stopwatchdemo.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
 
@@ -60,14 +59,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private val updateTime : BroadcastReceiver = object : BroadcastReceiver(){
+    private val updateTime : BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             time = intent.getDoubleExtra(StopWatchService.CURRENT_TIME,0.0)
             binding.tvTime.text = getFormattedTime(time)
         }
     }
 
-    private fun getFormattedTime(time:Double):String{
+    private fun getFormattedTime(time:Double):String {
         val timeInt = time.roundToInt()
         val hours = timeInt % 86400 / 3600
         val minutes = timeInt % 86400 % 3600 / 60

@@ -21,7 +21,7 @@ class StopWatchService : Service() {
         super.onDestroy()
     }
 
-    companion object{
+    companion object {
         const val CURRENT_TIME = "current time"
         const val UPDATED_TIME = "updated time"
     }
@@ -33,6 +33,5 @@ class StopWatchService : Service() {
            intent.putExtra(CURRENT_TIME,time)
            sendBroadcast(intent)
         }
-
     }
 }
